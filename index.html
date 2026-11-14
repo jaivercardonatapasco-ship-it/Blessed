@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLESSD // EL BENDITO — Portal Oficial & Archivo Digital</title>
+  <!-- Tipografías modernas y monoespaciadas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Fondo con cuadrícula sutil estilo HUD -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- Navegación Glassmorphism -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#inicio" class="brand">
+        <span class="brand-dot"></span>
+        BLESSD<span class="mono-tag">//SYS.057</span>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#biografia" class="nav-item">Biografía</a>
+        <a href="#discografia" class="nav-item">Discografía</a>
+        <a href="#colaboraciones" class="nav-item">Featurings</a>
+        <a href="#galeria" class="nav-item">Archivo Visual</a>
+        <a href="#tienda" class="nav-item">Merch</a>
+        <a href="#booking" class="nav-item btn-nav">Eventos Privados</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / DASHBOARD PRINCIPAL -->
+    <section id="inicio" class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="status-badge">
+            <span class="pulse"></span>
+            <span class="mono">ESTADO: GIRA MUNDIAL ACTIVA // MEDELLÍN, CO</span>
+          </div>
+          <h1>STIVEN MESA<br><span class="text-gradient">BLESSD</span></h1>
+          <p class="hero-desc">
+            De Barrio Antioquia para el mundo. El exponente líder de la nueva generación del género urbano colombiano. Explora su archivo discográfico, métricas en tiempo real y contratación oficial.
+          </p>
+          <div class="hero-actions">
+            <a href="#discografia" class="btn btn-primary">Explorar Catálogo</a>
+            <a href="#booking" class="btn btn-glass">Solicitar Fecha Privada</a>
+          </div>
+        </div>
+
+        <!-- Panel de Telemetría Simulada en Tiempo Real -->
+        <aside class="telemetry-card glass-panel reveal">
+          <div class="panel-header">
+            <span class="mono">LIVE_METRICS // GLOBAL_STREAM</span>
+            <span class="mono status-online">● SYNC</span>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <span class="metric-label mono">OYENTES MENSUALES</span>
+              <span class="metric-value" id="metric-listeners">24,850,120</span>
+              <span class="metric-delta positive mono">+4.2% ESTA SEMANA</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label mono">REPRODUCCIONES TOTALES</span>
+              <span class="metric-value" id="metric-streams">3,412,908,440</span>
+              <span class="metric-delta mono">SPOTIFY / APPLE / YT</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label mono">TOP TRACK ACTUAL</span>
+              <span class="metric-value small">MÍRAME (feat. Ovy)</span>
+              <span class="metric-delta positive mono">#1 COLOMBIA // GLOBAL TOP 50</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label mono">PRÓXIMO SHOW</span>
+              <span class="metric-value small">MOVISTAR ARENA</span>
+              <span class="metric-delta mono">SOLD OUT // 100%</span>
+            </div>
+          </div>
+          <!-- Mini reproductor de muestra -->
+          <div class="mini-player">
+            <button id="play-preview-btn" class="play-btn" aria-label="Reproducir frecuencia">▶</button>
+            <div class="track-info">
+              <span class="mono track-title">AUDIO_PREVIEW: "SI SABE FERXXO"</span>
+              <div class="equalizer" id="equalizer">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- BIOGRAFÍA / CRONOLOGÍA -->
+    <section id="biografia" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="mono section-tag">01 // ORIGEN & TRAYECTORIA</span>
+          <h2>De las calles de Medellín al circuito global</h2>
+        </div>
+
+        <div class="bio-grid">
+          <div class="bio-text glass-panel reveal">
+            <p>
+              Nacido en Itagüí y criado en el corazón de <strong>Barrio Antioquia, Medellín</strong>, Stiven Mesa Londoño —conocido mundialmente como <strong>Blessd "El Bendito"</strong>— transformó su realidad vendiendo dulces en las madrugadas para financiar sus primeras sesiones de estudio.
+            </p>
+            <p>
+              Su estilo fusiona el reggaetón clásico de la vieja escuela paisa con sonidos frescos, melodías callejeras y una ética de trabajo implacable bajo el sello <em>Cigol / Warner Music Latina</em>.
+            </p>
+            <div class="bio-tags mono">
+              <span>#HECHOENMEDELLÍN</span>
+              <span>#ELBENDITO</span>
+              <span>#SISABE</span>
+            </div>
+          </div>
+
+          <div class="timeline reveal">
+            <div class="timeline-item glass-panel">
+              <span class="mono year">2020</span>
+              <h4>"Una" & El Despegue</h4>
+              <p>Consolida su sonido local en Antioquia y capta la atención de productores clave de la escena.</p>
+            </div>
+            <div class="timeline-item glass-panel">
+              <span class="mono year">2021</span>
+              <h4>"Imposible Remix" & "Medallo"</h4>
+              <p>Alcanza proyección internacional junto a Maluma y Justin Quiles, ingresando al Top Global.</p>
+            </div>
+            <div class="timeline-item glass-panel">
+              <span class="mono year">2022 - 2024</span>
+              <h4>Álbumes "Siempre Blessd" & "Si Sabe"</h4>
+              <p>Llena escenarios en Europa, EE. UU. y Latinoamérica, posicionando múltiples sencillos #1.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DISCOGRAFÍA (ÁLBUMES Y CANCIONES CON FILTRO DINÁMICO) -->
+    <section id="discografia" class="section">
+      <div class="container">
+        <div class="section-header-flex reveal">
+          <div>
+            <span class="mono section-tag">02 // CATÁLOGO SONORO</span>
+            <h2>Álbumes & Canciones Destacadas</h2>
+          </div>
+          <!-- Filtros Dinámicos -->
+          <div class="filter-controls" role="group" aria-label="Filtrar discografía">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="album">Álbumes</button>
+            <button class="filter-btn" data-filter="single">Sencillos</button>
+          </div>
+        </div>
+
+        <div class="disco-grid" id="disco-grid">
+          <!-- Renderizado dinámicamente desde script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- COLABORACIONES -->
+    <section id="colaboraciones" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="mono section-tag">03 // ALIANZAS ESTRATÉGICAS</span>
+          <h2>Colaboraciones de Alto Impacto</h2>
+        </div>
+
+        <div class="collab-grid">
+          <article class="collab-card glass-panel reveal">
+            <div class="collab-top">
+              <span class="mono badge-year">2021</span>
+              <span class="mono views">450M+ VIEWS</span>
+            </div>
+            <h3>Medallo</h3>
+            <p class="collab-artists">Blessd × Justin Quiles × Lenny Tavárez</p>
+            <p class="collab-desc">El himno que puso a Medellín en el mapa global de la nueva ola urbana.</p>
+          </article>
+
+          <article class="collab-card glass-panel reveal">
+            <div class="collab-top">
+              <span class="mono badge-year">2024</span>
+              <span class="mono views">310M+ VIEWS</span>
+            </div>
+            <h3>Si Sabe Ferxxo</h3>
+            <p class="collab-artists">Blessd × Feid</p>
+            <p class="collab-desc">La unión más esperada de la escena paisa; explosión sonora y estética verde/azul.</p>
+          </article>
+
+          <article class="collab-card glass-panel reveal">
+            <div class="collab-top">
+              <span class="mono badge-year">2024</span>
+              <span class="mono views">280M+ VIEWS</span>
+            </div>
+            <h3>Mírame</h3>
+            <p class="collab-artists">Blessd × Ovy On The Drums</p>
+            <p class="collab-desc">Producción minimalista y emotiva que lideró las listas de reproducción en Hispanoamérica.</p>
+          </article>
+
+          <article class="collab-card glass-panel reveal">
+            <div class="collab-top">
+              <span class="mono badge-year">2023</span>
+              <span class="mono views">190M+ VIEWS</span>
+            </div>
+            <h3>Las Morras</h3>
+            <p class="collab-artists">Blessd × Peso Pluma</p>
+            <p class="collab-desc">Fusión transfronteriza entre el urbano colombiano y los corridos tumbados de México.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA CON EFECTOS VISUALES -->
+    <section id="galeria" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="mono section-tag">04 // ARCHIVO VISUAL</span>
+          <h2>En Vivo & Backstage</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item reveal" data-caption="Gira Mundial — Escenario Principal, Medellín">
+            <div class="cyber-frame" style="--bg-img: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80')">
+              <div class="scanline"></div>
+              <figcaption class="mono">01 // STAGE_MEDELLÍN</figcaption>
+            </div>
+          </figure>
+          <figure class="gallery-item reveal" data-caption="Sesión Nocturna de Estudio — Cigol Records">
+            <div class="cyber-frame" style="--bg-img: url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=900&q=80')">
+              <div class="scanline"></div>
+              <figcaption class="mono">02 // STUDIO_SESSION</figcaption>
+            </div>
+          </figure>
+          <figure class="gallery-item reveal" data-caption="Sold Out Arena Tour — Iluminación Láser Azul">
+            <div class="cyber-frame" style="--bg-img: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80')">
+              <div class="scanline"></div>
+              <figcaption class="mono">03 // ARENA_TOUR</figcaption>
+            </div>
+          </figure>
+          <figure class="gallery-item reveal" data-caption="Backstage & Producción Visual">
+            <div class="cyber-frame" style="--bg-img: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=900&q=80')">
+              <div class="scanline"></div>
+              <figcaption class="mono">04 // SOUND_SYSTEM</figcaption>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIENDA OFICIAL (MERCH) -->
+    <section id="tienda" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="mono section-tag">05 // DROP OFICIAL</span>
+          <h2>Tienda & Colección Cápsula</h2>
+        </div>
+
+        <div class="store-grid">
+          <div class="product-card glass-panel reveal">
+            <div class="product-visual">
+              <span class="mono tag-edition">EDICIÓN LIMITADA</span>
+              <div class="product-art hoodie-art"></div>
+            </div>
+            <div class="product-info">
+              <h3>Hoodie "Si Sabe" Heavyweight</h3>
+              <p class="mono price">$85.00 USD</p>
+              <button class="btn btn-glass full-width add-cart-btn" data-product="Hoodie Si Sabe Heavyweight">Reservar Pieza</button>
+            </div>
+          </div>
+
+          <div class="product-card glass-panel reveal">
+            <div class="product-visual">
+              <span class="mono tag-edition">DROP 04</span>
+              <div class="product-art cap-art"></div>
+            </div>
+            <div class="product-info">
+              <h3>Gorra Trucker "El Bendito"</h3>
+              <p class="mono price">$40.00 USD</p>
+              <button class="btn btn-glass full-width add-cart-btn" data-product="Gorra Trucker El Bendito">Reservar Pieza</button>
+            </div>
+          </div>
+
+          <div class="product-card glass-panel reveal">
+            <div class="product-visual">
+              <span class="mono tag-edition">COLECCIONISTA</span>
+              <div class="product-art vinyl-art"></div>
+            </div>
+            <div class="product-info">
+              <h3>Vinilo Azul Translúcido — Siempre Blessd</h3>
+              <p class="mono price">$55.00 USD</p>
+              <button class="btn btn-glass full-width add-cart-btn" data-product="Vinilo Siempre Blessd">Reservar Pieza</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTOS PRIVADOS & PANEL DE BOOKING -->
+    <section id="booking" class="section">
+      <div class="container">
+        <div class="booking-wrapper glass-panel reveal">
+          <div class="booking-info">
+            <span class="mono section-tag">06 // BOOKING & MANAGEMENT</span>
+            <h2>Eventos Privados & Contrataciones</h2>
+            <p>
+              Gestiona fechas para festivales, conciertos privados, activaciones de marca o apariciones exclusivas directamente con el equipo de management.
+            </p>
+            <ul class="booking-specs mono">
+              <li>▸ FORMATO FULL BAND + DJ SET</li>
+              <li>▸ RIDER TÉCNICO DE ALTA COMPLEJIDAD</li>
+              <li>▸ DISPONIBILIDAD: LATAM / USA / EUROPA</li>
+            </ul>
+          </div>
+
+          <form id="booking-form" class="booking-form" novalidate>
+            <div class="form-group">
+              <label for="client-name" class="mono">NOMBRE / EMPRESA PROMOTORA</label>
+              <input type="text" id="client-name" placeholder="Ej. Live Entertainment Group" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="client-email" class="mono">CORREO CORPORATIVO</label>
+                <input type="email" id="client-email" placeholder="contacto@empresa.com" required>
+              </div>
+              <div class="form-group">
+                <label for="event-date" class="mono">FECHA ESTIMADA</label>
+                <input type="date" id="event-date" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="event-type" class="mono">TIPO DE EVENTO</label>
+              <select id="event-type">
+                <option value="Concierto / Arena">Concierto Público / Arena</option>
+                <option value="Evento Privado">Evento Privado Exclusivo</option>
+                <option value="Festival">Festival Internacional</option>
+                <option value="Campaña / Marca">Colaboración Comercial / Marca</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="event-details" class="mono">CIUDAD, AFORO Y DETALLES</label>
+              <textarea id="event-details" rows="3" placeholder="Indica ciudad, país y capacidad estimada del recinto..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary full-width">Transmitir Solicitud al Management</button>
+            <p id="form-feedback" class="form-feedback mono" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <span class="brand">BLESSD<span class="mono-tag">//057</span></span>
+        <p class="mono">HECHO EN MEDELLÍN — TODOS LOS DERECHOS RESERVADOS © 2025</p>
+      </div>
+      <div class="social-links mono">
+        <a href="https://open.spotify.com" target="_blank" rel="noopener">SPOTIFY</a>
+        <a href="https://youtube.com" target="_blank" rel="noopener">YOUTUBE</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener">INSTAGRAM</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL DE DETALLE (DISCOGRAFÍA / GALERÍA / RESERVA) -->
+  <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true">
+    <div class="modal-box glass-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close mono" id="modal-close" aria-label="Cerrar ventana">[X]</button>
+      <span class="mono modal-tag" id="modal-tag">DETALLE_SISTEMA</span>
+      <h3 id="modal-title">Título</h3>
+      <p id="modal-body">Contenido</p>
+      <div id="modal-extra" class="modal-extra mono"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
