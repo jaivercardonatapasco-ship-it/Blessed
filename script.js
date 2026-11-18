@@ -5,7 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // ---------------------------------------
-  // 1. DATOS DE DISCOGRAFÍA
+  // 1. DATOS DE DISCOGRAFÍA CON FOTOS REALES
   // ---------------------------------------
   const discographyData = [
     {
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'album',
       year: '2024',
       streams: '980M+ STREAMS',
+      cover: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80',
       description: 'Álbum conceptual con esencia paisa moderna, colaboraciones estelares y energía de club.',
       tracks: ['Si Sabe Ferxxo', 'Mírame', '1000', 'Te Extraño']
     },
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'album',
       year: '2022',
       streams: '1.2B+ STREAMS',
+      cover: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=600&q=80',
       description: 'Producción debut de largo alcance que consolidó su identidad en Latinoamérica y Europa.',
       tracks: ['Tendencia Global', 'Quien TV', 'Cura', 'Lejanía']
     },
@@ -32,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'single',
       year: '2024',
       streams: '340M+ STREAMS',
+      cover: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80',
       description: 'Sencillo de alto impacto emocional y perreo melódico posicionado en los primeros lugares.',
       tracks: ['Mírame (Original Mix)', 'Mírame (Instrumental)']
     },
@@ -41,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'single',
       year: '2024',
       streams: '410M+ STREAMS',
+      cover: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=600&q=80',
       description: 'Himno urbano de Medellín con estética inconfundible y rotación global.',
       tracks: ['Si Sabe Ferxxo', 'Si Sabe Ferxxo (Sped Up)']
     },
@@ -50,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'single',
       year: '2021',
       streams: '520M+ STREAMS',
+      cover: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80',
       description: 'Junto a Justin Quiles y Lenny Tavárez; pieza clave en la expansión internacional del artista.',
       tracks: ['Medallo', 'Medallo (Remix)']
     },
@@ -59,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'single',
       year: '2023',
       streams: '260M+ STREAMS',
+      cover: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=600&q=80',
       description: 'Cruce de sonidos urbanos y regional mexicano con gran alcance en plataformas digitales.',
       tracks: ['Las Morras']
     }
@@ -155,7 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!audioCtx) return;
     const now = audioCtx.currentTime;
 
-    // Kick grave simulado
     const osc = audioCtx.createOscillator();
     const gain = audioCtx.createGain();
     osc.type = 'sine';
@@ -273,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return `
         <article class="disco-card glass-panel" data-id="${item.id}" tabindex="0" role="button" aria-label="Ver detalles de ${item.title}">
           <div>
-            <div class="disco-cover">
+            <div class="disco-cover" style="background-image: url('${item.cover}')">
               <span class="disco-type-pill">${typeLabel}</span>
             </div>
             <div class="disco-meta mono" style="margin-top: 0.9rem;">
