@@ -691,7 +691,7 @@ img {
 }
 
 .disco-cover {
-  height: 155px;
+  height: 165px;
   border-radius: var(--radius-md);
   position: relative;
   overflow: hidden;
@@ -710,7 +710,7 @@ img {
   text-transform: uppercase;
   padding: 0.25rem 0.55rem;
   border-radius: 4px;
-  background: rgba(7, 9, 15, 0.82);
+  background: rgba(7, 9, 15, 0.85);
   color: var(--accent-primary);
   border: 1px solid rgba(56, 189, 248, 0.35);
 }
@@ -856,7 +856,7 @@ img {
 }
 
 /* =========================================
-   TIENDA OFICIAL (MERCH)
+   TIENDA OFICIAL (MERCH CON IMÁGENES REALES)
    ========================================= */
 .store-grid {
   display: grid;
@@ -875,11 +875,26 @@ img {
   position: relative;
   height: 200px;
   border-radius: var(--radius-md);
-  background: rgba(7, 10, 18, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  display: grid;
-  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-size: cover;
+  background-position: center;
   overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+}
+
+/* Fondos específicos de merch basados en temática del artista */
+.merch-hoodie-bg {
+  background-image: linear-gradient(to top, rgba(7,9,15,0.9), rgba(7,9,15,0.3)), url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80');
+}
+
+.merch-cap-bg {
+  background-image: linear-gradient(to top, rgba(7,9,15,0.9), rgba(7,9,15,0.3)), url('https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=600&q=80');
+}
+
+.merch-vinyl-bg {
+  background-image: linear-gradient(to top, rgba(7,9,15,0.9), rgba(7,9,15,0.3)), url('https://images.unsplash.com/photo-1539375665275-f9de415ef9ac?auto=format&fit=crop&w=600&q=80');
 }
 
 .tag-edition {
@@ -894,38 +909,6 @@ img {
   border: 1px solid rgba(56, 189, 248, 0.35);
   color: var(--accent-primary);
   z-index: 2;
-}
-
-.product-art {
-  width: 96px;
-  height: 96px;
-  transition: transform var(--transition);
-}
-
-.product-card:hover .product-art {
-  transform: scale(1.08) rotate(-3deg);
-}
-
-.hoodie-art {
-  border-radius: 22px 22px 12px 12px;
-  background: linear-gradient(145deg, #1e293b, #0f172a);
-  border: 2px solid var(--accent-primary);
-  box-shadow: 0 0 28px rgba(56, 189, 248, 0.22);
-}
-
-.cap-art {
-  width: 105px;
-  height: 68px;
-  border-radius: 50px 50px 10px 10px;
-  background: linear-gradient(135deg, #38bdf8, #4f46e5);
-  box-shadow: 0 0 25px rgba(129, 140, 248, 0.25);
-}
-
-.vinyl-art {
-  border-radius: 50%;
-  background:
-    radial-gradient(circle, #07090f 0 18%, #38bdf8 19% 21%, rgba(56, 189, 248, 0.25) 22%, rgba(14, 165, 233, 0.65) 68%, #0284c7 100%);
-  box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
 }
 
 .product-info h3 {
