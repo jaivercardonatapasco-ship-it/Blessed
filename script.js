@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'album',
       year: '2022',
       streams: '1.2B+ STREAMS',
-      cover: 'https://mir-s3-cdn-cf.behance.net/projects/404/6642f6258159729.Y3JvcCwxNjg5LDEzMjEsMCw1MjY.png?auto=format&fit=crop&w=600&q=80',
+      cover: 'https://images.genius.com/1df6aef145c54fc32a6b03cbd29ae15f.1000x1000x1.png?auto=format&fit=crop&w=600&q=80',
       description: 'Producción debut de largo alcance que consolidó su identidad en Latinoamérica y Europa.',
       tracks: ['Tendencia Global', 'Quien TV', 'Cura', 'Lejanía']
     },
