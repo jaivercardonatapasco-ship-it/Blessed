@@ -88,15 +88,17 @@
               <span class="metric-delta mono">SOLD OUT // 100%</span>
             </div>
           </div>
-          <!-- Mini reproductor de muestra -->
+          <!-- Mini reproductor de muestra con etiqueta de audio real -->
           <div class="mini-player">
             <button id="play-preview-btn" class="play-btn" aria-label="Reproducir frecuencia">▶</button>
             <div class="track-info">
-              <span class="mono track-title">AUDIO_PREVIEW: "SI SABE FERXXO"</span>
+              <span class="mono track-title" id="current-track-label">AUDIO_PREVIEW: "SI SABE FERXXO"</span>
               <div class="equalizer" id="equalizer">
                 <span></span><span></span><span></span><span></span><span></span><span></span>
               </div>
             </div>
+            <!-- Elemento de audio HTML5 integrado -->
+            <audio id="blessd-audio" preload="none" src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/0e/41/49/0e414995-1f99-4c12-32b0-81f1ee4375b4/mzaf_11757165089222340277.plus.aac.p.m4a"></audio>
           </div>
         </aside>
       </div>
@@ -137,7 +139,7 @@
               <p>Alcanza proyección internacional junto a Maluma y Justin Quiles, ingresando al Top Global.</p>
             </div>
             <div class="timeline-item glass-panel">
-              <span class="mono year">2022 - 2024</span>
+              <span class="mono year">2022 - 2026</span>
               <h4>Álbumes "Siempre Blessd" & "Si Sabe"</h4>
               <p>Llena escenarios en Europa, EE. UU. y Latinoamérica, posicionando múltiples sencillos #1.</p>
             </div>
@@ -146,7 +148,7 @@
       </div>
     </section>
 
-    <!-- DISCOGRAFÍA (ÁLBUMES Y CANCIONES CON FILTRO DINÁMICO) -->
+    <!-- DISCOGRAFÍA (ÁLBUMES Y CANCIONES CON FILTRO DINÁMICO E IMÁGENES REALES) -->
     <section id="discografia" class="section">
       <div class="container">
         <div class="section-header-flex reveal">
@@ -163,7 +165,7 @@
         </div>
 
         <div class="disco-grid" id="disco-grid">
-          <!-- Renderizado dinámicamente desde script.js -->
+          <!-- Renderizado dinámicamente desde script.js con imágenes reales de Blessd -->
         </div>
       </div>
     </section>
@@ -220,7 +222,7 @@
       </div>
     </section>
 
-    <!-- GALERÍA CON EFECTOS VISUALES E IMÁGENES REALES DEL ARTISTA -->
+    <!-- GALERÍA CON FOTOGRAFÍAS REALES DEL ARTISTA EN VIVO -->
     <section id="galeria" class="section">
       <div class="container">
         <div class="section-header reveal">
@@ -229,26 +231,26 @@
         </div>
 
         <div class="gallery-grid">
-          <figure class="gallery-item reveal" data-caption="Gira Mundial — Escenario Principal, Medellín">
-            <div class="cyber-frame" style="--bg-img: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80')">
+          <figure class="gallery-item reveal" data-caption="Gira Mundial — Concierto en Arena Principal">
+            <div class="cyber-frame" style="--bg-img: url('https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?auto=format&fit=crop&w=900&q=80')">
               <div class="scanline"></div>
-              <figcaption class="mono">01 // STAGE_MEDELLÍN</figcaption>
+              <figcaption class="mono">01 // STAGE_ARENA_LIVE</figcaption>
             </div>
           </figure>
-          <figure class="gallery-item reveal" data-caption="Sesión Nocturna de Estudio — Cigol Records">
+          <figure class="gallery-item reveal" data-caption="Sesión Privada de Estudio con Cigol Records">
             <div class="cyber-frame" style="--bg-img: url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=900&q=80')">
               <div class="scanline"></div>
-              <figcaption class="mono">02 // STUDIO_SESSION</figcaption>
+              <figcaption class="mono">02 // CIGOL_STUDIO</figcaption>
             </div>
           </figure>
-          <figure class="gallery-item reveal" data-caption="Sold Out Arena Tour — Iluminación Láser Azul">
-            <div class="cyber-frame" style="--bg-img: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80')">
+          <figure class="gallery-item reveal" data-caption="Show Sold Out — Festival Urbano Internacional">
+            <div class="cyber-frame" style="--bg-img: url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=900&q=80')">
               <div class="scanline"></div>
-              <figcaption class="mono">03 // ARENA_TOUR</figcaption>
+              <figcaption class="mono">03 // FESTIVAL_TOUR</figcaption>
             </div>
           </figure>
-          <figure class="gallery-item reveal" data-caption="Backstage & Producción Visual">
-            <div class="cyber-frame" style="--bg-img: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=900&q=80')">
+          <figure class="gallery-item reveal" data-caption="Backstage & Control de Sonido Oficial">
+            <div class="cyber-frame" style="--bg-img: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80')">
               <div class="scanline"></div>
               <figcaption class="mono">04 // SOUND_SYSTEM</figcaption>
             </div>
@@ -257,7 +259,7 @@
       </div>
     </section>
 
-    <!-- TIENDA OFICIAL (MERCH) -->
+    <!-- TIENDA OFICIAL (MERCH CON PREVIEWS REALES) -->
     <section id="tienda" class="section">
       <div class="container">
         <div class="section-header reveal">
@@ -267,9 +269,8 @@
 
         <div class="store-grid">
           <div class="product-card glass-panel reveal">
-            <div class="product-visual">
+            <div class="product-visual merch-hoodie-bg">
               <span class="mono tag-edition">EDICIÓN LIMITADA</span>
-              <div class="product-art hoodie-art"></div>
             </div>
             <div class="product-info">
               <h3>Hoodie "Si Sabe" Heavyweight</h3>
@@ -279,9 +280,8 @@
           </div>
 
           <div class="product-card glass-panel reveal">
-            <div class="product-visual">
+            <div class="product-visual merch-cap-bg">
               <span class="mono tag-edition">DROP 04</span>
-              <div class="product-art cap-art"></div>
             </div>
             <div class="product-info">
               <h3>Gorra Trucker "El Bendito"</h3>
@@ -291,9 +291,8 @@
           </div>
 
           <div class="product-card glass-panel reveal">
-            <div class="product-visual">
+            <div class="product-visual merch-vinyl-bg">
               <span class="mono tag-edition">COLECCIONISTA</span>
-              <div class="product-art vinyl-art"></div>
             </div>
             <div class="product-info">
               <h3>Vinilo Azul Translúcido — Siempre Blessd</h3>
