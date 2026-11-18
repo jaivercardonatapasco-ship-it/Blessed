@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'album',
       year: '2022',
       streams: '1.2B+ STREAMS',
-      cover: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=600&q=80',
+      cover: 'https://mir-s3-cdn-cf.behance.net/projects/404/6642f6258159729.Y3JvcCwxNjg5LDEzMjEsMCw1MjY.png?auto=format&fit=crop&w=600&q=80',
       description: 'Producción debut de largo alcance que consolidó su identidad en Latinoamérica y Europa.',
       tracks: ['Tendencia Global', 'Quien TV', 'Cura', 'Lejanía']
     },
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'single',
       year: '2024',
       streams: '340M+ STREAMS',
-      cover: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80',
+      cover: 'https://i.scdn.co/image/ab67616d0000b2739d96ae35d725e30b02134b4c?auto=format&fit=crop&w=600&q=80',
       description: 'Sencillo de alto impacto emocional y perreo melódico posicionado en los primeros lugares.',
       tracks: ['Mírame (Original Mix)', 'Mírame (Instrumental)']
     },
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'single',
       year: '2024',
       streams: '410M+ STREAMS',
-      cover: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=600&q=80',
+      cover: 'https://i.ytimg.com/vi/D-_X9O-CxE4/sddefault.jpg?auto=format&fit=crop&w=600&q=80',
       description: 'Himno urbano de Medellín con estética inconfundible y rotación global.',
       tracks: ['Si Sabe Ferxxo', 'Si Sabe Ferxxo (Sped Up)']
     },
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'single',
       year: '2021',
       streams: '520M+ STREAMS',
-      cover: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=600&q=80',
+      cover: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMShiw6IKUJXbcjGjqqZjwIdLebJypSPa4dKXx-v5iXw3pp9oBQBfJmFOl&s=10?auto=format&fit=crop&w=600&q=80',
       description: 'Junto a Justin Quiles y Lenny Tavárez; pieza clave en la expansión internacional.',
       tracks: ['Medallo', 'Medallo (Remix)']
     },
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'single',
       year: '2023',
       streams: '260M+ STREAMS',
-      cover: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80',
+      cover: 'https://i.ytimg.com/vi/4jvO-GCO_Tk/maxresdefault.jpg?auto=format&fit=crop&w=600&q=80',
       description: 'Cruce de sonidos urbanos y regional mexicano con gran alcance en plataformas digitales.',
       tracks: ['Las Morras']
     }
