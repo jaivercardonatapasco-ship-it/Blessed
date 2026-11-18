@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'album',
       year: '2024',
       streams: '980M+ STREAMS',
-      cover: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80',
+      cover: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaiSQXkMHOopm__-QnS0HW0jbTxDvxj3-xndRgNcShIHzErtxaJNvykLY&s=10?auto=format&fit=crop&w=600&q=80',
       description: 'Álbum conceptual con esencia paisa moderna, colaboraciones estelares y energía de club.',
       tracks: ['Si Sabe Ferxxo', 'Mírame', '1000', 'Te Extraño']
     },
