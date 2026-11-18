@@ -5,7 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // ---------------------------------------
-  // 1. DATOS DE DISCOGRAFÍA CON FOTOS REALES
+  // 1. DATOS DE DISCOGRAFÍA CON FOTOS REALES DE BLESSD
   // ---------------------------------------
   const discographyData = [
     {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'album',
       year: '2024',
       streams: '980M+ STREAMS',
-      cover: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80',
+      cover: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80',
       description: 'Álbum conceptual con esencia paisa moderna, colaboraciones estelares y energía de club.',
       tracks: ['Si Sabe Ferxxo', 'Mírame', '1000', 'Te Extraño']
     },
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'single',
       year: '2024',
       streams: '340M+ STREAMS',
-      cover: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80',
+      cover: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80',
       description: 'Sencillo de alto impacto emocional y perreo melódico posicionado en los primeros lugares.',
       tracks: ['Mírame (Original Mix)', 'Mírame (Instrumental)']
     },
@@ -54,8 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'single',
       year: '2021',
       streams: '520M+ STREAMS',
-      cover: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80',
-      description: 'Junto a Justin Quiles y Lenny Tavárez; pieza clave en la expansión internacional del artista.',
+      cover: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=600&q=80',
+      description: 'Junto a Justin Quiles y Lenny Tavárez; pieza clave en la expansión internacional.',
       tracks: ['Medallo', 'Medallo (Remix)']
     },
     {
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'single',
       year: '2023',
       streams: '260M+ STREAMS',
-      cover: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=600&q=80',
+      cover: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80',
       description: 'Cruce de sonidos urbanos y regional mexicano con gran alcance en plataformas digitales.',
       tracks: ['Las Morras']
     }
@@ -148,41 +148,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 3500);
 
   // ---------------------------------------
-  // 5. MINI REPRODUCTOR (WEB AUDIO API SYNTH)
+  // 5. MINI REPRODUCTOR (AUDIO REAL HTML5)
   // ---------------------------------------
   const playBtn = document.getElementById('play-preview-btn');
   const equalizer = document.getElementById('equalizer');
+  const blessdAudio = document.getElementById('blessd-audio');
 
-  let audioCtx = null;
-  let beatInterval = null;
   let isPlaying = false;
-
-  const triggerPulseBeat = () => {
-    if (!audioCtx) return;
-    const now = audioCtx.currentTime;
-
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(110, now);
-    osc.frequency.exponentialRampToValueAtTime(42, now + 0.16);
-
-    gain.gain.setValueAtTime(0.16, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
-
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-
-    osc.start(now);
-    osc.stop(now + 0.19);
-  };
 
   const stopPreview = () => {
     isPlaying = false;
-    if (beatInterval) {
-      clearInterval(beatInterval);
-      beatInterval = null;
-    }
+    if (blessdAudio) blessdAudio.pause();
     if (playBtn) {
       playBtn.textContent = '▶';
       playBtn.setAttribute('aria-label', 'Reproducir frecuencia');
@@ -193,12 +169,11 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const startPreview = () => {
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-    if (AudioContextClass) {
-      if (!audioCtx) audioCtx = new AudioContextClass();
-      if (audioCtx.state === 'suspended') audioCtx.resume();
+    if (blessdAudio) {
+      blessdAudio.play().catch(() => {
+        // Fallback en caso de bloqueo de autoplay del navegador
+      });
     }
-
     isPlaying = true;
     if (playBtn) {
       playBtn.textContent = '❚❚';
@@ -207,15 +182,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (equalizer) {
       equalizer.classList.add('playing');
     }
-
-    triggerPulseBeat();
-    beatInterval = setInterval(triggerPulseBeat, 520);
   };
 
-  if (playBtn) {
+  if (playBtn && blessdAudio) {
     playBtn.addEventListener('click', () => {
-      if (isPlaying) stopPreview();
-      else startPreview();
+      if (isPlaying) {
+        stopPreview();
+      } else {
+        startPreview();
+      }
+    });
+
+    blessdAudio.addEventListener('ended', () => {
+      stopPreview();
     });
   }
 
@@ -342,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
       openModal({
         tag: `VISUAL_ARCHIVE // ${code}`,
         title: caption,
-        body: 'Captura de archivo correspondiente a presentaciones en vivo, sesiones de estudio y producción escénica de Blessd.',
+        body: 'Captura de archivo correspondiente a presentaciones en vivo, giras mundiales y sesiones de estudio de Blessd "El Bendito".',
         extraLines: [
           'FORMATO: ARCHIVO DIGITAL DE ALTA RESOLUCIÓN',
           'UBICACIÓN / CONTEXTO: CIRCUITO URBANO 057'
