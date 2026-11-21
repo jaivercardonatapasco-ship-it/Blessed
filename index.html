@@ -89,16 +89,20 @@
             </div>
           </div>
          <!-- Mini reproductor de muestra con etiqueta de audio real -->
-<div class="mini-player">
-  <button id="play-preview-btn" class="play-btn" aria-label="Reproducir frecuencia">▶</button>
-  
-  <div class="track-info">
-    <span class="mono track-title" id="current-track-label">AUDIO_PREVIEW: "PODERES - KRIS R. & BLESSD"</span>
-    <div class="equalizer" id="equalizer">
-      <span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
-  </div>
-
+          <div class="mini-player">
+            <button id="play-preview-btn" class="play-btn" aria-label="Reproducir frecuencia">▶</button>
+            <div class="track-info">
+              <span class="mono track-title" id="current-track-label">AUDIO_PREVIEW: "SI SABE FERXXO"</span>
+              <div class="equalizer" id="equalizer">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <!-- Elemento de audio HTML5 integrado -->
+            <audio id="blessd-audio" preload="none" src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/0e/41/49/0e414995-1f99-4c12-32b0-81f1ee4375b4/mzaf_11757165089222340277.plus.aac.p.m4"></audio>
+          </div>
+        </aside>
+      </div>
+    </section>
   <!-- Elemento de audio HTML5 integrado (reemplaza la ruta por tu archivo .mp3/.m4a o el previewUrl) -->
   <audio id="blessd-audio" preload="auto" src="ruta/a/tu/poderes-kris-r-blessd.mp3"></audio>
 </div>
