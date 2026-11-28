@@ -148,53 +148,83 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 3500);
 
   // ---------------------------------------
-  // 5. MINI REPRODUCTOR (AUDIO REAL HTML5)
+  // 5. MINI REPRODUCTOR: MÚSICA EN VIVO (YOUTUBE)
   // ---------------------------------------
+  // Pega aquí los IDs de tus videos en vivo de Blessd.
+  // El ID es lo que va después de "v=" en la URL de YouTube.
+  // Ejemplo: youtube.com/watch?v=AbC123xyz00  ->  id: 'AbC123xyz00'
+  const LIVE_TRACKS = [
+    { title: 'BLESSD EN VIVO // SET 01', id: 'PEGA_AQUI_ID_1' },
+    { title: 'BLESSD EN VIVO // SET 02', id: 'PEGA_AQUI_ID_2' }
+  ];
+
   const playBtn = document.getElementById('play-preview-btn');
   const equalizer = document.getElementById('equalizer');
-  const blessdAudio = document.getElementById('blessd-audio');
+  const trackLabel = document.getElementById('current-track-label');
+  const liveVideo = document.getElementById('live-video');
 
-  let isPlaying = false;
+  let ytPlayer = null;
+  let currentTrack = 0;
 
-  const stopPreview = () => {
-    isPlaying = false;
-    if (blessdAudio) blessdAudio.pause();
+  const setPlayingUI = (playing) => {
     if (playBtn) {
-      playBtn.textContent = '▶';
-      playBtn.setAttribute('aria-label', 'Reproducir frecuencia');
+      playBtn.textContent = playing ? '❚❚' : '▶';
+      playBtn.setAttribute('aria-label', playing ? 'Pausar en vivo' : 'Reproducir en vivo');
     }
-    if (equalizer) {
-      equalizer.classList.remove('playing');
-    }
+    if (equalizer) equalizer.classList.toggle('playing', playing);
   };
 
-  const startPreview = () => {
-    if (blessdAudio) {
-      blessdAudio.play().catch(() => {
-        // Fallback en caso de bloqueo de autoplay del navegador
+  const updateLabel = () => {
+    if (trackLabel) trackLabel.textContent = `LIVE_SESSION: ${LIVE_TRACKS[currentTrack].title}`;
+  };
+
+  const loadYouTubeApi = () => new Promise((resolve) => {
+    if (window.YT && window.YT.Player) return resolve();
+    window.onYouTubeIframeAPIReady = resolve;
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(tag);
+  });
+
+  const createPlayer = async () => {
+    await loadYouTubeApi();
+    return new Promise((resolve) => {
+      ytPlayer = new YT.Player('yt-player', {
+        videoId: LIVE_TRACKS[currentTrack].id,
+        playerVars: { rel: 0, playsinline: 1, modestbranding: 1 },
+        events: {
+          onReady: () => resolve(),
+          onStateChange: (e) => {
+            if (e.data === YT.PlayerState.PLAYING) {
+              setPlayingUI(true);
+            } else if (e.data === YT.PlayerState.PAUSED) {
+              setPlayingUI(false);
+            } else if (e.data === YT.PlayerState.ENDED) {
+              currentTrack = (currentTrack + 1) % LIVE_TRACKS.length;
+              updateLabel();
+              ytPlayer.loadVideoById(LIVE_TRACKS[currentTrack].id);
+            }
+          }
+        }
       });
-    }
-    isPlaying = true;
-    if (playBtn) {
-      playBtn.textContent = '❚❚';
-      playBtn.setAttribute('aria-label', 'Pausar frecuencia');
-    }
-    if (equalizer) {
-      equalizer.classList.add('playing');
-    }
+    });
   };
 
-  if (playBtn && blessdAudio) {
-    playBtn.addEventListener('click', () => {
-      if (isPlaying) {
-        stopPreview();
-      } else {
-        startPreview();
+  if (playBtn) {
+    updateLabel();
+    playBtn.addEventListener('click', async () => {
+      if (!ytPlayer) {
+        if (liveVideo) liveVideo.hidden = false;
+        await createPlayer();
+        ytPlayer.playVideo();
+        return;
       }
-    });
-
-    blessdAudio.addEventListener('ended', () => {
-      stopPreview();
+      const state = ytPlayer.getPlayerState();
+      if (state === YT.PlayerState.PLAYING) {
+        ytPlayer.pauseVideo();
+      } else {
+        ytPlayer.playVideo();
+      }
     });
   }
 
