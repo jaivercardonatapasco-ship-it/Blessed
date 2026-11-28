@@ -5,6 +5,17 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // ---------------------------------------
+  // UTILIDAD DE SEGURIDAD (ESCAPAR HTML)
+  // ---------------------------------------
+  const escapeHTML = (str = '') =>
+    String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+
+  // ---------------------------------------
   // 1. DATOS DE DISCOGRAFÍA CON FOTOS REALES DE BLESSD
   // ---------------------------------------
   const discographyData = [
@@ -79,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navItems = document.querySelectorAll('.nav-item');
 
   const toggleMenu = (forceState) => {
+    if (!navLinks || !hamburger) return;
     const isOpen = typeof forceState === 'boolean' ? forceState : !navLinks.classList.contains('open');
     navLinks.classList.toggle('open', isOpen);
     hamburger.classList.toggle('open', isOpen);
@@ -153,49 +165,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const playBtn = document.getElementById('play-preview-btn');
   const equalizer = document.getElementById('equalizer');
   const blessdAudio = document.getElementById('blessd-audio');
+  const trackLabel = document.getElementById('current-track-label');
 
-  let isPlaying = false;
-
-  const stopPreview = () => {
-    isPlaying = false;
-    if (blessdAudio) blessdAudio.pause();
+  const setPlayingUI = (playing) => {
     if (playBtn) {
-      playBtn.textContent = '▶';
-      playBtn.setAttribute('aria-label', 'Reproducir frecuencia');
+      playBtn.textContent = playing ? '❚❚' : '▶';
+      playBtn.setAttribute('aria-label', playing ? 'Pausar frecuencia' : 'Reproducir frecuencia');
     }
     if (equalizer) {
-      equalizer.classList.remove('playing');
-    }
-  };
-
-  const startPreview = () => {
-    if (blessdAudio) {
-      blessdAudio.play().catch(() => {
-        // Fallback en caso de bloqueo de autoplay del navegador
-      });
-    }
-    isPlaying = true;
-    if (playBtn) {
-      playBtn.textContent = '❚❚';
-      playBtn.setAttribute('aria-label', 'Pausar frecuencia');
-    }
-    if (equalizer) {
-      equalizer.classList.add('playing');
+      equalizer.classList.toggle('playing', playing);
     }
   };
 
   if (playBtn && blessdAudio) {
     playBtn.addEventListener('click', () => {
-      if (isPlaying) {
-        stopPreview();
+      if (!blessdAudio.paused) {
+        blessdAudio.pause();
       } else {
-        startPreview();
+        blessdAudio.play().catch(() => {
+          setPlayingUI(false);
+          if (trackLabel) {
+            trackLabel.textContent = 'AUDIO_PREVIEW: ARCHIVO NO DISPONIBLE (REVISA RUTA .MP3)';
+          }
+        });
       }
     });
 
-    blessdAudio.addEventListener('ended', () => {
-      stopPreview();
-    });
+    blessdAudio.addEventListener('play', () => setPlayingUI(true));
+    blessdAudio.addEventListener('pause', () => setPlayingUI(false));
+    blessdAudio.addEventListener('ended', () => setPlayingUI(false));
+    blessdAudio.addEventListener('error', () => setPlayingUI(false));
   }
 
   // ---------------------------------------
@@ -207,17 +206,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalTitle = document.getElementById('modal-title');
   const modalBody = document.getElementById('modal-body');
   const modalExtra = document.getElementById('modal-extra');
+  let lastFocusedEl = null;
 
   const openModal = ({ tag = 'DETALLE_SISTEMA', title = '', body = '', extraLines = [] }) => {
     if (!modalBackdrop) return;
-    modalTag.textContent = tag;
-    modalTitle.textContent = title;
-    modalBody.textContent = body;
-    modalExtra.innerHTML = extraLines.map((line) => `<span>▸ ${line}</span>`).join('');
+    lastFocusedEl = document.activeElement;
+
+    if (modalTag) modalTag.textContent = tag;
+    if (modalTitle) modalTitle.textContent = title;
+    if (modalBody) modalBody.textContent = body;
+    if (modalExtra) {
+      modalExtra.innerHTML = extraLines
+        .map((line) => `<span>▸ ${escapeHTML(line)}</span>`)
+        .join('');
+    }
 
     modalBackdrop.classList.add('active');
     modalBackdrop.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    modalClose?.focus();
   };
 
   const closeModal = () => {
@@ -225,6 +232,10 @@ document.addEventListener('DOMContentLoaded', () => {
     modalBackdrop.classList.remove('active');
     modalBackdrop.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') {
+      lastFocusedEl.focus();
+      lastFocusedEl = null;
+    }
   };
 
   if (modalClose) modalClose.addEventListener('click', closeModal);
@@ -255,17 +266,17 @@ document.addEventListener('DOMContentLoaded', () => {
     discoGrid.innerHTML = filtered.map((item) => {
       const typeLabel = item.type === 'album' ? 'ÁLBUM' : 'SENCILLO';
       return `
-        <article class="disco-card glass-panel" data-id="${item.id}" tabindex="0" role="button" aria-label="Ver detalles de ${item.title}">
+        <article class="disco-card glass-panel visible" data-id="${escapeHTML(item.id)}" tabindex="0" role="button" aria-label="Ver detalles de ${escapeHTML(item.title)}">
           <div>
-            <div class="disco-cover" style="background-image: url('${item.cover}')">
+            <div class="disco-cover" style="background-image: url('${escapeHTML(item.cover)}')">
               <span class="disco-type-pill">${typeLabel}</span>
             </div>
             <div class="disco-meta mono" style="margin-top: 0.9rem;">
-              <span>${item.year}</span>
-              <span>${item.streams}</span>
+              <span>${escapeHTML(item.year)}</span>
+              <span>${escapeHTML(item.streams)}</span>
             </div>
-            <h3>${item.title}</h3>
-            <p>${item.description}</p>
+            <h3>${escapeHTML(item.title)}</h3>
+            <p>${escapeHTML(item.description)}</p>
           </div>
           <div class="disco-footer mono">
             <span>VER TRACKLIST</span>
@@ -339,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
   addCartBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const productName = btn.dataset.product || 'Pieza Oficial';
-      const priceText = btn.closest('.product-card')?.querySelector('.price')?.textContent || '';
+      const priceText = btn.closest('.product-card')?.querySelector('.price')?.textContent?.trim() || '';
       reservedItems.push(productName);
 
       openModal({
