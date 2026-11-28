@@ -154,8 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // El ID es lo que va después de "v=" en la URL de YouTube.
   // Ejemplo: youtube.com/watch?v=AbC123xyz00  ->  id: 'AbC123xyz00'
   const LIVE_TRACKS = [
-    { title: 'BLESSD EN VIVO // SET 01', id: 'https://www.youtube.com/watch?v=pv8eIZN7pXI&list=RDpv8eIZN7pXI&start_radio=1' },
-    { title: 'BLESSD EN VIVO // SET 02', id: 'https://www.youtube.com/watch?v=FY6Ckc9EGvw&list=RDFY6Ckc9EGvw&start_radio=1' }
+    { title: 'BLESSD EN VIVO // SET 01', id: 'youtube.com/watch?v=pv8eIZN7pXI&list=RDpv8eIZN7pXI&start_radio=1' },
+    { title: 'BLESSD EN VIVO // SET 02', id: 'youtube.com/watch?v=FY6Ckc9EGvw&list=RDFY6Ckc9EGvw&start_radio=1' }
   ];
 
   const playBtn = document.getElementById('play-preview-btn');
