@@ -88,24 +88,23 @@
               <span class="metric-delta mono">SOLD OUT // 100%</span>
             </div>
           </div>
-         <!-- Mini reproductor de muestra con etiqueta de audio real -->
-<div class="mini-player">
-  <button id="play-preview-btn" class="play-btn" aria-label="Reproducir frecuencia">▶</button>
-  
-  <div class="track-info">
-    <span class="mono track-title" id="current-track-label">AUDIO_PREVIEW: "PODERES - KRIS R. & BLESSD"</span>
-    <div class="equalizer" id="equalizer">
-      <span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
-  </div>
 
-  <!-- Elemento de audio HTML5 integrado (reemplaza la ruta por tu archivo .mp3/.m4a o el previewUrl) -->
-  <audio id="blessd-audio" preload="auto" src="ruta/a/tu/poderes-kris-r-blessd.mp3"></audio>
-</div>
-
-  <!-- Elemento de audio HTML5 integrado (reemplaza la ruta por tu archivo .mp3/.m4a o el previewUrl) -->
-  <audio id="blessd-audio" preload="auto" src="ruta/a/tu/poderes-kris-r-blessd.mp3"></audio>
-</div>
+          <!-- Mini reproductor: música en vivo (YouTube) -->
+          <div class="mini-player">
+            <button id="play-preview-btn" class="play-btn" aria-label="Reproducir en vivo">▶</button>
+            <div class="track-info">
+              <span class="mono track-title" id="current-track-label">LIVE_SESSION: BLESSD EN VIVO</span>
+              <div class="equalizer" id="equalizer">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+          <div class="live-video" id="live-video" hidden>
+            <div id="yt-player"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
     <!-- BIOGRAFÍA / CRONOLOGÍA -->
     <section id="biografia" class="section">
