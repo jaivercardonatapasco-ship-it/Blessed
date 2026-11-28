@@ -24,7 +24,7 @@
         BLESSD<span class="mono-tag">//SYS.057</span>
       </a>
 
-      <nav class="nav-links" id="nav-links">
+      <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
         <a href="#biografia" class="nav-item">Biografía</a>
         <a href="#discografia" class="nav-item">Discografía</a>
         <a href="#colaboraciones" class="nav-item">Featurings</a>
@@ -33,7 +33,7 @@
         <a href="#booking" class="nav-item btn-nav">Eventos Privados</a>
       </nav>
 
-      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <button type="button" class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
         <span></span>
         <span></span>
         <span></span>
@@ -61,7 +61,7 @@
         </div>
 
         <!-- Panel de Telemetría Simulada en Tiempo Real -->
-        <aside class="telemetry-card glass-panel reveal">
+        <aside class="telemetry-card glass-panel reveal" aria-label="Métricas en tiempo real">
           <div class="panel-header">
             <span class="mono">LIVE_METRICS // GLOBAL_STREAM</span>
             <span class="mono status-online">● SYNC</span>
@@ -88,24 +88,23 @@
               <span class="metric-delta mono">SOLD OUT // 100%</span>
             </div>
           </div>
-         <!-- Mini reproductor de muestra con etiqueta de audio real -->
-<div class="mini-player">
-  <button id="play-preview-btn" class="play-btn" aria-label="Reproducir frecuencia">▶</button>
-  
-  <div class="track-info">
-    <span class="mono track-title" id="current-track-label">AUDIO_PREVIEW: "PODERES - KRIS R. & BLESSD"</span>
-    <div class="equalizer" id="equalizer">
-      <span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
-  </div>
 
-  <!-- Elemento de audio HTML5 integrado (reemplaza la ruta por tu archivo .mp3/.m4a o el previewUrl) -->
-  <audio id="blessd-audio" preload="auto" src="ruta/a/tu/poderes-kris-r-blessd.mp3"></audio>
-</div>
+          <!-- Mini reproductor de muestra con etiqueta de audio real -->
+          <div class="mini-player">
+            <button type="button" id="play-preview-btn" class="play-btn" aria-label="Reproducir frecuencia">▶</button>
 
-  <!-- Elemento de audio HTML5 integrado (reemplaza la ruta por tu archivo .mp3/.m4a o el previewUrl) -->
-  <audio id="blessd-audio" preload="auto" src="ruta/a/tu/poderes-kris-r-blessd.mp3"></audio>
-</div>
+            <div class="track-info">
+              <span class="mono track-title" id="current-track-label">AUDIO_PREVIEW: "PODERES - KRIS R. & BLESSD"</span>
+              <div class="equalizer" id="equalizer" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <audio id="blessd-audio" preload="metadata" src="ruta/a/tu/poderes-kris-r-blessd.mp3"></audio>
+          </div>
+        </aside>
+      </div>
+    </section>
 
     <!-- BIOGRAFÍA / CRONOLOGÍA -->
     <section id="biografia" class="section">
@@ -133,17 +132,17 @@
           <div class="timeline reveal">
             <div class="timeline-item glass-panel">
               <span class="mono year">2020</span>
-              <h4>"Una" & El Despegue</h4>
+              <h3>"Una" & El Despegue</h3>
               <p>Consolida su sonido local en Antioquia y capta la atención de productores clave de la escena.</p>
             </div>
             <div class="timeline-item glass-panel">
               <span class="mono year">2021</span>
-              <h4>"Imposible Remix" & "Medallo"</h4>
+              <h3>"Imposible Remix" & "Medallo"</h3>
               <p>Alcanza proyección internacional junto a Maluma y Justin Quiles, ingresando al Top Global.</p>
             </div>
             <div class="timeline-item glass-panel">
               <span class="mono year">2022 - 2026</span>
-              <h4>Álbumes "Siempre Blessd" & "Si Sabe"</h4>
+              <h3>Álbumes "Siempre Blessd" & "Si Sabe"</h3>
               <p>Llena escenarios en Europa, EE. UU. y Latinoamérica, posicionando múltiples sencillos #1.</p>
             </div>
           </div>
@@ -161,9 +160,9 @@
           </div>
           <!-- Filtros Dinámicos -->
           <div class="filter-controls" role="group" aria-label="Filtrar discografía">
-            <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="album">Álbumes</button>
-            <button class="filter-btn" data-filter="single">Sencillos</button>
+            <button type="button" class="filter-btn active" data-filter="all">Todos</button>
+            <button type="button" class="filter-btn" data-filter="album">Álbumes</button>
+            <button type="button" class="filter-btn" data-filter="single">Sencillos</button>
           </div>
         </div>
 
@@ -225,7 +224,7 @@
       </div>
     </section>
 
-        <!-- GALERÍA CON FOTOGRAFÍAS REALES DEL ARTISTA EN VIVO -->
+    <!-- GALERÍA CON FOTOGRAFÍAS REALES DEL ARTISTA EN VIVO -->
     <section id="galeria" class="section">
       <div class="container">
         <div class="section-header reveal">
@@ -235,25 +234,32 @@
 
         <div class="gallery-grid">
           <figure class="gallery-item reveal" data-caption="Gira Mundial — Concierto en Arena Principal">
-            <div class="cyber-frame" style="--bg-img: url('https://www.billboard.com/wp-content/uploads/2025/11/02-Blessd-2025-credit-Sebastian-Pena-billboard-1800.jpg?auto=format&fit=crop&w=900&q=80')">
+            <div class="cyber-frame">
+              <img src="https://www.billboard.com/wp-content/uploads/2025/11/02-Blessd-2025-credit-Sebastian-Pena-billboard-1800.jpg" alt="Blessd en presentación en vivo en arena principal" loading="lazy">
               <div class="scanline"></div>
               <figcaption class="mono">01 // ESTADIO_EN_VIVO</figcaption>
             </div>
           </figure>
+
           <figure class="gallery-item reveal" data-caption="Sesión Privada de Estudio con Cigol Records">
-            <div class="cyber-frame" style="--bg-img: url('https://i.pinimg.com/736x/07/4b/e5/074be58eddc586b29d830c65d8452e3e.jpg?auto=format&fit=crop&w=900&q=80')">
+            <div class="cyber-frame">
+              <img src="https://i.pinimg.com/736x/07/4b/e5/074be58eddc586b29d830c65d8452e3e.jpg" alt="Blessd en sesión de estudio musical" loading="lazy">
               <div class="scanline"></div>
               <figcaption class="mono">02 // ESTUDIO_MUSICAL</figcaption>
             </div>
           </figure>
+
           <figure class="gallery-item reveal" data-caption="Show Sold Out — Festival Urbano Internacional">
-            <div class="cyber-frame" style="--bg-img: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0_RjQQLU7EIcx3rm43FCaSApINcaNqmV6SsEBydkRNXl1TBLPtm-shC4&s=10?auto=format&fit=crop&w=900&q=80')">
+            <div class="cyber-frame">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0_RjQQLU7EIcx3rm43FCaSApINcaNqmV6SsEBydkRNXl1TBLPtm-shC4&s=10" alt="Blessd en festival urbano internacional" loading="lazy">
               <div class="scanline"></div>
               <figcaption class="mono">03 // EVENTOS_Y_GIRAS</figcaption>
             </div>
           </figure>
+
           <figure class="gallery-item reveal" data-caption="Backstage & Control de Sonido Oficial">
-            <div class="cyber-frame" style="--bg-img: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqsVPyg6XpBqLOLup8At8VF_OrE953GPVbQp0xvuhIzfrQ4SKHNmSSNibw&s=10?auto=format&fit=crop&w=900&q=80')">
+            <div class="cyber-frame">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqsVPyg6XpBqLOLup8At8VF_OrE953GPVbQp0xvuhIzfrQ4SKHNmSSNibw&s=10" alt="Blessd en backstage y prueba de sonido" loading="lazy">
               <div class="scanline"></div>
               <figcaption class="mono">04 // PRODUCTORES</figcaption>
             </div>
@@ -262,12 +268,12 @@
       </div>
     </section>
 
-        <!-- TIENDA OFICIAL (MERCH CON PREVIEWS REALES) -->
+    <!-- TIENDA OFICIAL (MERCH CON PREVIEWS REALES) -->
     <section id="tienda" class="section">
       <div class="container">
         <div class="section-header reveal">
           <span class="mono section-tag">05 // DROP OFICIAL</span>
-          <h2>Tienda & Colección </h2>
+          <h2>Tienda & Colección</h2>
         </div>
 
         <div class="store-grid">
@@ -276,9 +282,9 @@
               <span class="mono tag-edition">EDICIÓN LIMITADA</span>
             </div>
             <div class="product-info">
-              <h3> Sudadera con capota "Si Sabe" Gramaje alto</h3>
+              <h3>Sudadera con capota "Si Sabe" Gramaje alto</h3>
               <p class="mono price">$85.00 USD</p>
-              <button class="btn btn-glass full-width add-cart-btn" data-product="Hoodie Si Sabe Heavyweight">Reservar Pieza</button>
+              <button type="button" class="btn btn-glass full-width add-cart-btn" data-product="Hoodie Si Sabe Heavyweight">Reservar Pieza</button>
             </div>
           </div>
 
@@ -289,7 +295,7 @@
             <div class="product-info">
               <h3>Gorra de "El Bendito"</h3>
               <p class="mono price">$40.00 USD</p>
-              <button class="btn btn-glass full-width add-cart-btn" data-product="Gorra Trucker El Bendito">Reservar Pieza</button>
+              <button type="button" class="btn btn-glass full-width add-cart-btn" data-product="Gorra Trucker El Bendito">Reservar Pieza</button>
             </div>
           </div>
 
@@ -300,7 +306,7 @@
             <div class="product-info">
               <h3>Vinilo Azul Translúcido — Siempre Blessd</h3>
               <p class="mono price">$55.00 USD</p>
-              <button class="btn btn-glass full-width add-cart-btn" data-product="Vinilo Siempre Blessd">Reservar Pieza</button>
+              <button type="button" class="btn btn-glass full-width add-cart-btn" data-product="Vinilo Siempre Blessd">Reservar Pieza</button>
             </div>
           </div>
         </div>
@@ -368,9 +374,9 @@
         <p class="mono">HECHO EN MEDELLÍN — TODOS LOS DERECHOS RESERVADOS © 2026</p>
       </div>
       <div class="social-links mono">
-        <a href="https://open.spotify.com" target="_blank" rel="noopener">SPOTIFY</a>
-        <a href="https://youtube.com" target="_blank" rel="noopener">YOUTUBE</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer">SPOTIFY</a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">YOUTUBE</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
       </div>
     </div>
   </footer>
@@ -378,7 +384,7 @@
   <!-- MODAL DE DETALLE (DISCOGRAFÍA / GALERÍA / RESERVA) -->
   <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true">
     <div class="modal-box glass-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <button class="modal-close mono" id="modal-close" aria-label="Cerrar ventana">[X]</button>
+      <button type="button" class="modal-close mono" id="modal-close" aria-label="Cerrar ventana">[X]</button>
       <span class="mono modal-tag" id="modal-tag">DETALLE_SISTEMA</span>
       <h3 id="modal-title">Título</h3>
       <p id="modal-body">Contenido</p>
